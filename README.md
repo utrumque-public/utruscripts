@@ -1,6 +1,6 @@
 # utruscripts
 
-### A set of modular cripts to setup a machine for utrumque work
+### A set of modular scripts to setup a machine for utrumque work
 
 Go to the `utruscripts` folder and start with running your **personal setup script**. This script starts with `apt update` and `apt upgrade`.
 
