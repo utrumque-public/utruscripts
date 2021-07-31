@@ -1,6 +1,6 @@
 # utruscripts
 
-### Scripts to setup a machine for utrumque work
+### A set of modular cripts to setup a machine for utrumque work
 
 Go to the `utruscripts` folder and start with running your **personal setup script**. This script starts with `apt update` and `apt upgrade`.
 
@@ -17,7 +17,7 @@ sh setup-ssh.sh
 sh setup-audio-tools.sh
 sh setup-reaper.sh
 sh setup-supercollider.sh
-sh setup-utruware.sh
+sh setup-utrumque-tools.sh
 sh setup-dropbox.sh
 ```
 
