@@ -1,34 +1,34 @@
 # utruscripts
 
-Scripts to setup a machine for utrumque work
+### Scripts to setup a machine for utrumque work
 
-Start with running the git setup:
+Go to the `utruscripts` folder and start with running your **personal setup script**. This script starts with `apt update` and `apt upgrade`.
 
-`setup-git-ludvig.sh`
+`sh setup-ludvig.sh`
 
 or
 
-`setup-git-gerhard.sh`
+`sh setup-gerhard.sh`
 
-Then run the following scripts in any sqeuence:
-
-```
-setup-ssh.sh
-setup-audio-tools.sh
-setup-reaper.sh
-setup-supercollider.sh
-setup-utruware.sh
-setup-dropbox.sh
-```
-
-Run this one as last script, as a reboot is required afterwards
+Then run the following **scripts in any order**:
 
 ```
-setup-audio.sh
+sh setup-ssh.sh
+sh setup-audio-tools.sh
+sh setup-reaper.sh
+sh setup-supercollider.sh
+sh setup-utruware.sh
+sh setup-dropbox.sh
+```
+
+Run the following script as the last one, since a **reboot** is required afterwards:
+
+```
+sh setup-audio.sh
 reboot
 ```
 
-After the reboot run:
+After the reboot run this script to **check** if your audio configuration is OK:
 
-`check-audio-setup.sh`
+`sh check-audio-setup.sh`
 
