@@ -5,7 +5,7 @@ set -x
 sudo apt install libfreetype6-dev libx11-dev libxinerama-dev libxrandr-dev libxcursor-dev libxcomposite-dev libfontconfig1-dev libcurl4-gnutls-dev ladspa-sdk mesa-common-dev libasound2-dev freeglut3-dev -y
 
 cd $HOME
-mkdir src -p
+mkdir -p src
 cd src
 
 rm -rf IEMPluginSuite
@@ -13,11 +13,14 @@ git clone https://git.iem.at/audioplugins/IEMPluginSuite.git
 
 rm -rf FST
 git clone https://git.iem.at/zmoelnig/FST
-mv -r FST/fst IEMPluginSuite/pluginterfaces/vst2.x
+mkdir -p IEMPluginSuite/pluginterfaces
+mv FST/fst IEMPluginSuite/pluginterfaces/vst2.x
 rm -rf FST
 
+set +x
+
 echo
-secho "Left to do (don't know how to automatise this):"
+echo "Left to do (don't know how to automatise this):"
 echo
 echo "  (1) Download JUCE for Linux from 'https://juce.com/get-juce/download'"
 echo "  and extract the ZIP archive into '~/src/IEMPluginSuite'."
