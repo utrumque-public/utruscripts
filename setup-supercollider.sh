@@ -6,7 +6,8 @@ sudo apt install emacs build-essential cmake libjack-jackd2-dev libsndfile1-dev 
 cd $HOME
 [ ! -d "src" ] && mkdir src
 cd src
-git clone --recurse-submodules --branch Version-3.11.2 https://github.com/SuperCollider/SuperCollider.git
+rm -rf SuperCollider
+git clone --recurse-submodules https://github.com/SuperCollider/SuperCollider.git
 cd SuperCollider
 mkdir build
 cd build
