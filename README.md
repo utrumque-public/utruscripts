@@ -13,13 +13,16 @@ or
 Then run the following **scripts in any order**:
 
 ```
-sh setup-ssh.sh
 sh setup-audio-tools.sh
-sh setup-reaper.sh
+sh setup-qjackctl.sh
 sh setup-supercollider.sh
 sh setup-utrumque-tools.sh
+sh setup-reaper.sh
+sh setup-ssh.sh
 sh setup-dropbox.sh
 ```
+
+The last three scripts need further attention/interaction by/from the user.
 
 Run the following script as the last one, since a **reboot** is required afterwards:
 
