@@ -21,7 +21,7 @@ sh setup-ssh.sh
 sh setup-dropbox.sh
 ```
 
-The last three scripts need further attention/interaction by/from the user.
+The last four scripts need further attention/interaction by/from the user.
 
 Run the following script as the last one, since a **reboot** is required afterwards:
 
