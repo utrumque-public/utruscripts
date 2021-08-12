@@ -14,7 +14,6 @@ Then run the following **scripts in any order**:
 
 ```
 sh setup-audio-tools.sh
-sh setup-qjackctl.sh
 sh setup-supercollider.sh
 sh setup-utrumque-tools.sh
 sh setup-reaper.sh
