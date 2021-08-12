@@ -1,20 +1,26 @@
 #!/bin/bash
 
-set -x
-cd
-wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf - .dropbox-dist/dropboxd
-wget "https://linux.dropbox.com/packages/dropbox.py"
-sudo mv dropbox.py /usr/bin/dropbox
-sudo chown root:root /usr/bin/dropbox
-sudo chmod 755 /usr/bin/dropbox
-ln -sf ~/Dropbox/utrumque .utrumque
-set +x
-
-echo
-echo "LEFT TO DO:"
-echo
-echo " Install a link in home directoy named Dropbox pointing to the Dropbox directory."
-echo " E.g. ln -s /media/utrumque/data/Dropbox ~"
-echo " Then start Dropbox with 'dropbox start'"
-echo
+if ls $HOME/Downloads/dropbox_*_amd64.deb 1> /dev/null 2>&1;
+then
+  set -x
+  cd $HOME/Downloads
+  sudo dpkg -i dropbox_*_amd64.deb
+  ln -sf ~/Dropbox/utrumque ~/.utrumque  
+  set +x  
+  echo
+  echo "LEFT TO DO:"
+  echo
+  echo " Install a link in home directoy named Dropbox pointing to the Dropbox directory."
+  echo " E.g. ln -s /media/utrumque/data/Dropbox ~"
+  echo " After a breif delay, you will be asked to start Dropbox."
+  echo " If not, start Dropbox with 'dropbox start'"
+ echo
+else
+  echo
+  echo "Dropbox package not found in ~/Downloads."
+  echo "Download package for Ubuntu from https://www.dropbox.com/install"
+  echo "into ~/Downloads (select 'Save File' option in Firefox)"
+  echo "and run this script again."
+  echo
+fi
 
