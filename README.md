@@ -13,6 +13,7 @@ or
 Then run the following **scripts in any order**:
 
 ```
+sh remove-snap.sh
 sh setup-audio-tools.sh
 sh setup-supercollider.sh
 sh setup-utrumque-tools.sh
