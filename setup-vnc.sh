@@ -1,7 +1,7 @@
 ls#!/bin/bash
 
 set -x
-sudo apt install vino
+sudo apt install vino -y
 gsettings set org.gnome.Vino require-encryption false
 set +x
 echo
