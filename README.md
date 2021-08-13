@@ -10,7 +10,7 @@ or
 
 `sh setup-gerhard.sh`
 
-Then run the following **scripts in any order**:
+Then run the following scripts in this order:
 
 ```
 sh remove-snap.sh

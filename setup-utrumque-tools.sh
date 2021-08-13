@@ -3,6 +3,7 @@
 set -x
 
 cd $HOME
+rm -rf src/utrumque
 [ ! -d "src" ] && mkdir src
 cd src
 [ ! -d "utrumque" ] && mkdir utrumque
