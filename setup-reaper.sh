@@ -9,6 +9,9 @@ then
   sudo ./install-reaper.sh --install /opt --integrate-desktop --usr-local-bin-symlink
   cd ..
   rm -r reaper*_linux_x86_64.tar.xz
+  echo "RECORD t/record
+STOP t/stop
+" > $HOME/.config/REAPER/OSC/transport.ReaperOSC
 else
   echo
   echo "Reaper download not found in ~/Downloads."

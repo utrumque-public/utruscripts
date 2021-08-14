@@ -24,6 +24,7 @@ cmake -DCMAKE_BUILD_TYPE=Release DNATIVE=ON ..
 make -j 10
 sudo rm -rf /usr/local/share/SuperCollider
 sudo make install
+scide & sleep 3; killall scide
 set +x
 
 echo
