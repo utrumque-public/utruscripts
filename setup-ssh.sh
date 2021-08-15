@@ -4,12 +4,12 @@ set -x
 sudo apt install ssh -y
 sudo systemctl restart ssh.service 
 systemctl status ssh.service
+ssh-keygen -t rsa
 set +x
 
 echo
-echo "LEFT TO DO:"
+echo "LEFT TO DO ONCE THE LOCAL NETWORK IS CONFIGURED:"
 echo
-echo " On remote machine run:"
-echo " ssh-copy-id -i ~/.ssh/id_rsa.pub <user>@<hostname>"
+echo " ssh-copy-id <remoteIP>"
 echo
 
