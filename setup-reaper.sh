@@ -8,7 +8,8 @@ then
   cd reaper_linux_x86_64
   sudo ./install-reaper.sh --install /opt --integrate-desktop --usr-local-bin-symlink
   cd ..
-  rm -r reaper*_linux_x86_64.tar.xz
+  rm -r reaper*_linux_x86_64*
+  reaper & sleep 5; killall reaper
   echo "RECORD t/record
 STOP t/stop
 " > $HOME/.config/REAPER/OSC/transport.ReaperOSC

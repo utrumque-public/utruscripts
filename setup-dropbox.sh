@@ -5,6 +5,7 @@ then
   set -x
   cd $HOME/Downloads
   sudo dpkg -i dropbox_*_amd64.deb
+  rm dropbox_*_amd64.deb
   ln -sf ~/Dropbox/utrumque ~/.utrumque  
   set +x  
   echo

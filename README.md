@@ -19,6 +19,7 @@ sh setup-supercollider.sh
 sh setup-utrumque-tools.sh
 sh setup-reaper.sh
 sh setup-ssh.sh
+sh setup-vnc.sh
 sh setup-dropbox.sh
 ```
 
