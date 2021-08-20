@@ -38,7 +38,7 @@ then
   cd $HOME/src
   rm -rf mcfx FST
   cd $HOME/Downloads
-  rm -rf JUCE juce-linux.zip
+  rm -rf JUCE juce*linux.zip
 
 else
   echo
