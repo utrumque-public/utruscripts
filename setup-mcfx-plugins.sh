@@ -1,8 +1,5 @@
 #!/bin/bash
 
-
-
-
 if ls $HOME/Downloads/juce*linux.zip 1> /dev/null 2>&1;
 then
   set -x
@@ -51,22 +48,4 @@ else
   echo "and run this script again."
   echo
 fi
-
-exit 0
-
-
-
-
-
-
-
-
-
-
-
-
-
-set -x
-
-
 
