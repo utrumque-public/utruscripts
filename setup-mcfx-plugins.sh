@@ -39,6 +39,7 @@ then
   rm -rf mcfx FST
   cd $HOME/Downloads
   rm -rf JUCE juce*linux.zip
+  rm -rf $HOME/SDKs
 
 else
   echo
