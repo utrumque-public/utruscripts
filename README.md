@@ -4,11 +4,15 @@
 
 Go to the `utruscripts` folder and start with running your **personal setup script**. This script starts with `apt update` and `apt upgrade`.
 
-`sh setup-ludvig.sh`
+`
+sh setup-ludvig.sh
+`
 
 or
 
-`sh setup-gerhard.sh`
+`
+sh setup-gerhard.sh
+`
 
 Then run the following scripts in this order:
 
@@ -34,5 +38,7 @@ reboot
 
 After the reboot run this script to **check** if your audio configuration is OK:
 
-`sh check-audio-setup.sh`
+`
+sh check-audio-setup.sh
+`
 
