@@ -20,7 +20,7 @@ sh scripts/setup-supercollider.sh
 sh scripts/setup-neovim.sh
 
 # install from apt
-sudo apt install i3 kitty szh fzf htop fonts-ibm-plex tldr -y
+sudo apt install i3 kitty szh fzf htop tree fonts-ibm-plex tldr -y
 sudo apt install audacity gimp mpv vlc youtube-dl transmission -y
 sudo apt install libreoffice pandoc texlive-latex-extra -y
 sudo apt install jack-stdio pulseaudio-module-jack -y
