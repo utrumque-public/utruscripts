@@ -20,6 +20,7 @@ Then run the following scripts in this order:
 sh setup-audio-tools.sh
 sh setup-supercollider-devel.sh
 sh setup-reaper.sh
+sh setup-mcfx-plugins.sh
 sh setup-ssh.sh
 sh setup-vnc.sh
 sh setup-dropbox.sh
