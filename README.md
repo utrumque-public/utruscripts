@@ -17,10 +17,8 @@ sh setup-gerhard.sh
 Then run the following scripts in this order:
 
 ```
-sh remove-snap.sh
 sh setup-audio-tools.sh
-sh setup-supercollider.sh
-sh setup-utrumque-tools.sh
+sh setup-supercollider-devel.sh
 sh setup-reaper.sh
 sh setup-ssh.sh
 sh setup-vnc.sh

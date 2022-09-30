@@ -52,6 +52,6 @@ set +x
 echo
 echo "LEFT TO DO:"
 echo
-echo " Reboot and run 'sh check-audio-setup' afterwards."
+echo " Reboot and run 'sh check-audio-setup.sh' afterwards."
 echo
 
