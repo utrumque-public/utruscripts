@@ -20,10 +20,12 @@ then
   rm -rf FST
   git clone https://git.iem.at/zmoelnig/FST.git
 
-  mkdir -p $HOME/SDKs/VST3/pluginterfaces
-  cp -r FST/fst $HOME/SDKs/VST3/pluginterfaces/vst2.x
+  mkdir -p $HOME/SDKs/vstsdk2.4/pluginterfaces/vst2.x
+  cp -r FST/fst $HOME/SDKs/vstsdk2.4/pluginterfaces/vst2.x 
 
   cd mcfx
+  mv $HOME/Downloads/JUCE .
+  sed -i s/-msse3//g CMakeLists.txt
   mkdir BUILD
   cd BUILD
 
@@ -35,11 +37,11 @@ then
   cp _bin/*.so ~/.vst
   chmod -x ~/.vst/*.so
   
-  cd $HOME/src
-  rm -rf mcfx FST
-  cd $HOME/Downloads
-  rm -rf JUCE juce*linux.zip
-  rm -rf $HOME/SDKs
+#  cd $HOME/src
+#  rm -rf mcfx FST
+#  cd $HOME/Downloads
+#  rm -rf JUCE juce*linux.zip
+#  rm -rf $HOME/SDKs
 
 else
   echo
