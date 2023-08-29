@@ -25,9 +25,9 @@ mkdir src
 # SETUP VIM
 cd ~/src
 git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-sudo apt-get install ninja-build gettext cmake unzip curl
+sudo apt install ninja-build gettext cmake unzip curl -y
 git clone https://github.com/neovim/neovim
-cd neovim && make -j CMAKE_BUILD_TYPE=RelWithDebInfo
+cd neovim && make -j3 CMAKE_BUILD_TYPE=RelWithDebInfo
 sudo make install
 
 # SUPERCOLLIDER
@@ -39,7 +39,7 @@ cd SuperCollider
 mkdir build
 cd build
 cmake -DCMAKE_BUILD_TYPE=Release -DNATIVE=ON ..
-make -j
+make -j3
 sudo make install
 
 # DOTFILES
@@ -49,7 +49,7 @@ cd dotfiles
 sh ./install.sh
 
 # PIPEWIRE JACK
-sudo apt install pipewire-jack qpwgraph
+sudo apt install pipewire-jack qpwgraph -y
 sudo cp /usr/share/doc/pipewire/examples/ld.so.conf.d/pipewire-jack-x86_64-linux-gnu.conf /etc/ld.so.conf.d/
 sudo ldconfig
 
