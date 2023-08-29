@@ -16,7 +16,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 # SSH
 sudo apt install ssh -y
 sudo systemctl restart ssh.service
-systemctl status ssh.servive
+systemctl status ssh.service
 
 # SOURCE DIRECTORY
 cd ~
