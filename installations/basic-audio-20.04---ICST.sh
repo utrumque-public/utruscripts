@@ -2,6 +2,7 @@
 #
 # Installation script for a Linux audio setup with an SCNVim workflow.
 # Primarily made for the Incuses at ICST but works as basic install.
+# Should run in ~30 minutes without user interaction.
 
 set +x
 
@@ -13,7 +14,7 @@ sudo apt install fonts-ibm-plex git kitty curl qpwgraph ripgrep -y
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # SSH
-sudo apt install ssh - y
+sudo apt install ssh -y
 sudo systemctl restart ssh.service
 systemctl status ssh.servive
 
@@ -32,15 +33,13 @@ sudo make install
 # SUPERCOLLIDER
 cd ~/src
 sudo apt install build-essential cmake libjack-jackd2-dev libsndfile1-dev libfftw3-dev libxt-dev libavahi-client-dev -y
-sudo apt install qtbase5-dev qt5-qmake qttools5-dev qttools5-dev-tools qtdeclarative5-dev libqt5svg5-dev libqt5websockets5-dev qtwebengine5-dev -y
+sudo apt install libudev-dev qtbase5-dev qt5-qmake qttools5-dev qttools5-dev-tools qtdeclarative5-dev libqt5svg5-dev libqt5websockets5-dev qtwebengine5-dev -y
 git clone --recurse-submodules https://github.com/SuperCollider/SuperCollider.git
 cd SuperCollider
 mkdir build
 cd build
-sudo apt install libudev-dev emacs
 cmake -DCMAKE_BUILD_TYPE=Release -DNATIVE=ON ..
 make -j
-sudo apt remove emacs
 sudo make install
 
 # DOTFILES
