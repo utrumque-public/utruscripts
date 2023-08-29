@@ -38,7 +38,7 @@ git clone --recurse-submodules https://github.com/SuperCollider/SuperCollider.gi
 cd SuperCollider
 mkdir build
 cd build
-cmake -DCMAKE_BUILD_TYPE=Release -DNATIVE=ON ..
+cmake -DCMAKE_BUILD_TYPE=Release -DNATIVE=ON -DSC_EL=OFF ..
 make -j3
 sudo make install
 
@@ -54,16 +54,6 @@ sudo cp /usr/share/doc/pipewire/examples/ld.so.conf.d/pipewire-jack-x86_64-linux
 sudo ldconfig
 
 # AUDIO TUNING
-sudo apt install cpufrequtils -y
-echo 'GOVERNOR="performance"' | sudo tee /etc/default/cpufrequtils
-sudo systemctl disable ondemand
-echo performance | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
-
-echo "
-vm.swappiness=10
-fs.inotify.max_user_watches=524288
-" | sudo tee /etc/sysctl.conf
-
 sudo usermod -a -G audio $USER
 sudo usermod -a -G dialout $USER
 
