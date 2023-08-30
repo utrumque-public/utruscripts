@@ -2,11 +2,12 @@
 #  + Kitty and ZSH with Oh-My-Zsh
 #  + PipeWire with PipeWire-Jack
 #  + Latest compiled SuperCollider and NeoVim with SCNVim
-#  + SSH, tmux
+#  + SSH with tmux and rsync
 #
 # Should run in less than 30 minutes without user interaction.
 # Assumes fresh Ubuntu 23.04 basic install.
 # Clones utruscripts repo for any further installation/config needs.
+# Can be gotten with "wget tinyurl.com/utrumque-install"
 
 set +x
 
@@ -19,8 +20,8 @@ sudo apt install zsh -y
 sudo chsh -s /bin/zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-# SSH AND TMUX
-sudo apt install ssh tmux -y
+# SSH
+sudo apt install ssh tmux rsync -y
 sudo systemctl restart ssh.service
 systemctl status ssh.service
 
