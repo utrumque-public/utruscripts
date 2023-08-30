@@ -1,8 +1,12 @@
-#!/bin/bash
+# Installation script for an Ubuntu setup with:
+#  + Kitty and ZSH with Oh-My-Zsh
+#  + PipeWire with PipeWire-Jack
+#  + Latest compiled SuperCollider and NeoVim with SCNVim
+#  + SSH, tmux
 #
-# Installation script for a Linux audio setup with an SCNVim workflow.
-# Primarily made for the Incuses at ICST but works as basic install.
-# Should run in ~30 minutes without user interaction.
+# Should run in less than 30 minutes without user interaction.
+# Assumes fresh Ubuntu 23.04 basic install.
+# Clones utruscripts repo for any further installation/config needs.
 
 set +x
 
@@ -10,19 +14,26 @@ set +x
 sudo apt update && sudo apt upgrade -y
 sudo apt install fonts-ibm-plex git kitty curl qpwgraph ripgrep -y
 
-## OH MY ZSH
+## ZSH WITH OH MY ZSH
+sudo apt install zsh -y
+sudo chsh -s /bin/zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-# SSH
-sudo apt install ssh -y
+# SSH AND TMUX
+sudo apt install ssh tmux -y
 sudo systemctl restart ssh.service
 systemctl status ssh.service
+
+# PIPEWIRE JACK
+sudo apt install pipewire-jack qpwgraph -y
+sudo cp /usr/share/doc/pipewire/examples/ld.so.conf.d/pipewire-jack-x86_64-linux-gnu.conf /etc/ld.so.conf.d/
+sudo ldconfig
 
 # SOURCE DIRECTORY
 cd ~
 mkdir src
 
-# SETUP VIM
+# NEOVIM
 cd ~/src
 git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 sudo apt install ninja-build gettext cmake unzip curl -y
@@ -42,16 +53,16 @@ cmake -DCMAKE_BUILD_TYPE=Release -DNATIVE=ON -DSC_EL=OFF ..
 make -j3
 sudo make install
 
+# UTUSCRIPTS
+cd ~/src
+git clone https://github.com/utrumque-public/utruscripts
+
 # DOTFILES
 cd ~/src
 git clone https://github.com/elblaus/dotfiles
 cd dotfiles
 sh ./install.sh
-
-# PIPEWIRE JACK
-sudo apt install pipewire-jack qpwgraph -y
-sudo cp /usr/share/doc/pipewire/examples/ld.so.conf.d/pipewire-jack-x86_64-linux-gnu.conf /etc/ld.so.conf.d/
-sudo ldconfig
+nvim --headless -c "PackerInstall" -c "autocmd User PackerComplete quitall"
 
 # AUDIO TUNING
 sudo usermod -a -G audio $USER
