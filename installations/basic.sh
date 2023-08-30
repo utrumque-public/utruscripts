@@ -18,7 +18,10 @@ sudo apt install fonts-ibm-plex git kitty curl qpwgraph ripgrep -y
 ## ZSH WITH OH MY ZSH
 sudo apt install zsh -y
 sudo chsh -s /bin/zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+cd /tmp
+wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+rm -r ~/.oh-my-zsh
+sh install.sh --unattended
 
 # SSH
 sudo apt install ssh tmux rsync -y
