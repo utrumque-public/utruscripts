@@ -17,16 +17,15 @@ sudo apt install fonts-ibm-plex git kitty curl qpwgraph ripgrep -y
 
 ## ZSH WITH OH MY ZSH
 sudo apt install zsh -y
-sudo chsh -s /bin/zsh
+sudo chsh -s /bin/zsh $USER
 cd /tmp
 wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
 rm -r ~/.oh-my-zsh
 sh install.sh --unattended
 
 # SSH
-sudo apt install ssh tmux rsync -y
+sudo apt install ssh tmux rsync nmap -y
 sudo systemctl restart ssh.service
-systemctl status ssh.service
 
 # PIPEWIRE JACK
 sudo apt install pipewire-jack qpwgraph -y
