@@ -66,7 +66,7 @@ mkdir build
 cd build
 if [ "$remote" = true ]
 then
-    cmake -DCMAKE_BUILD_TYPE=Release -DNATIVE=ON -DSC_EL=OFF -DSC_QT=OFF ..
+    cmake -DCMAKE_BUILD_TYPE=Release -DNATIVE=ON -DSC_EL=OFF -DSC_QT=OFF -DSUPERNOVA=OFF ..
 else
     cmake -DCMAKE_BUILD_TYPE=Release -DNATIVE=ON -DSC_EL=OFF ..
 fi
