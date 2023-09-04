@@ -32,7 +32,7 @@ sudo apt install zsh -y
 sudo chsh -s /bin/zsh $USER
 cd /tmp
 wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
-rm -r ~/.oh-my-zsh
+rm -rf ~/.oh-my-zsh
 sh install.sh --unattended
 
 # SSH
@@ -50,18 +50,35 @@ mkdir src
 
 # NEOVIM
 cd ~/src
-git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+if [ -d "packer" ]; then
+    cd packer
+    git pull
+    cd ..
+else
+    git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+fi
 sudo apt install ninja-build gettext cmake unzip curl -y
-git clone https://github.com/neovim/neovim
-cd neovim && make -j3 CMAKE_BUILD_TYPE=RelWithDebInfo
+if [ -d "neovim" ]; then
+    cd neovim
+    git pull
+else
+    git clone https://github.com/neovim/neovim
+    cd neovim
+fi
+make -j3 CMAKE_BUILD_TYPE=RelWithDebInfo
 sudo make install
 
 # SUPERCOLLIDER
 cd ~/src
 sudo apt install build-essential cmake libjack-jackd2-dev libsndfile1-dev libfftw3-dev libxt-dev libavahi-client-dev -y
 sudo apt install libudev-dev qtbase5-dev qt5-qmake qttools5-dev qttools5-dev-tools qtdeclarative5-dev libqt5svg5-dev libqt5websockets5-dev qtwebengine5-dev -y
-git clone --recurse-submodules https://github.com/SuperCollider/SuperCollider.git
-cd SuperCollider
+if [ -d "supercollider" ]; then
+    cd SuperCollider
+    git pull
+else
+    git clone --recurse-submodules https://github.com/SuperCollider/SuperCollider.git
+    cd SuperCollider
+fi
 mkdir build
 cd build
 if [ "$remote" = true ]
@@ -75,12 +92,22 @@ sudo make install
 
 # UTUSCRIPTS
 cd ~/src
-git clone https://github.com/utrumque-public/utruscripts
+if [ -d "utruscripts" ]; then
+    cd utruscripts
+    git pull
+else
+    git clone https://github.com/utrumque-public/utruscripts
+fi
 
 # DOTFILES (change dotfiles repo depending on -l or -g flag)
 cd ~/src
-git clone https://github.com/elblaus/dotfiles
-cd dotfiles
+if [ -d "dotfiles" ]; then
+    cd dotfiles
+    git pull
+else
+    git clone https://github.com/elblaus/dotfiles
+    cd dotfiles
+fi
 sh ./install.sh -g
 nvim --headless -c "PackerInstall" -c "autocmd User PackerComplete quitall"
 
@@ -90,17 +117,20 @@ sudo usermod -a -G dialout $USER
 
 if ! grep -q "rtprio 95" /etc/security/limits.conf
 then
-echo "
-@audio - memlock unlimited
-@audio - rtprio 95
-" | sudo tee -a /etc/security/limits.conf
+    echo "
+    @audio - memlock unlimited
+    @audio - rtprio 95
+    " | sudo tee -a /etc/security/limits.conf
 fi
 
 sudo apt install rtirq-init -y
 sudo sed -i 's/quiet splash"/quiet splash threadirqs"/g' /etc/default/grub
 sudo update-grub
 
-sudo echo "
-@audio - memlock unlimited
-@audio - rtprio 95
-" | sudo tee /etc/security/limits.d/audio.conf
+if ! grep -q "rtprio 95" /etc/security/limits.d/audio.conf
+then
+    sudo echo "
+    @audio - memlock unlimited
+    @audio - rtprio 95
+    " | sudo tee /etc/security/limits.d/audio.conf
+fi
