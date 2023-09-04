@@ -46,14 +46,15 @@ sudo ldconfig
 
 # SOURCE DIRECTORY
 cd ~
-mkdir src
+if [ -d! "src" ]; then
+    mkdir src
+fi
 
 # NEOVIM
 cd ~/src
-if [ -d "packer" ]; then
-    cd packer
+if [ -d "~/.local/share/nvim/site/pack/packer/start/packer.nvim" ]; then
+    cd ~/.local/share/nvim/site/pack/packer/start/packer.nvim
     git pull
-    cd ..
 else
     git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 fi
