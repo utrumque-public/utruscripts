@@ -8,8 +8,20 @@
 # Assumes fresh Ubuntu 23.04 basic install.
 # Clones utruscripts repo for any further installation/config needs.
 # Can be gotten with "wget tinyurl.com/utrumque-install"
+#
+# Options:
+#   -r for remote install (no Qt or IDE for SC)
 
 set +x
+
+remote=false
+while getopts 'r' OPTION; do
+    case "$OPTION" in
+        r)
+            remote=true
+            ;;
+    esac
+done
 
 # UPDATE
 sudo apt update && sudo apt upgrade -y
@@ -52,7 +64,12 @@ git clone --recurse-submodules https://github.com/SuperCollider/SuperCollider.gi
 cd SuperCollider
 mkdir build
 cd build
-cmake -DCMAKE_BUILD_TYPE=Release -DNATIVE=ON -DSC_EL=OFF ..
+if [ "$remote" = true ]
+then
+    cmake -DCMAKE_BUILD_TYPE=Release -DNATIVE=ON -DSC_EL=OFF -DSC_QT=OFF ..
+else
+    cmake -DCMAKE_BUILD_TYPE=Release -DNATIVE=ON -DSC_EL=OFF ..
+fi
 make -j3
 sudo make install
 
@@ -64,7 +81,7 @@ git clone https://github.com/utrumque-public/utruscripts
 cd ~/src
 git clone https://github.com/elblaus/dotfiles
 cd dotfiles
-sh ./install.sh
+sh ./install.sh -g
 nvim --headless -c "PackerInstall" -c "autocmd User PackerComplete quitall"
 
 # AUDIO TUNING
