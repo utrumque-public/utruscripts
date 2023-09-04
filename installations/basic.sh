@@ -77,7 +77,7 @@ sudo make install
 cd ~/src
 git clone https://github.com/utrumque-public/utruscripts
 
-# DOTFILES
+# DOTFILES (change dotfiles repo depending on -l or -g flag)
 cd ~/src
 git clone https://github.com/elblaus/dotfiles
 cd dotfiles
