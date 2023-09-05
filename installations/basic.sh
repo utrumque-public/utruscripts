@@ -135,3 +135,6 @@ then
     @audio - rtprio 95
     " | sudo tee /etc/security/limits.d/audio.conf
 fi
+
+# CLEAN UP
+sudo apt autoremove -y
