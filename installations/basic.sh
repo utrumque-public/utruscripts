@@ -73,7 +73,7 @@ sudo make install
 cd ~/src
 sudo apt install build-essential cmake libjack-jackd2-dev libsndfile1-dev libfftw3-dev libxt-dev libavahi-client-dev -y
 sudo apt install libudev-dev qtbase5-dev qt5-qmake qttools5-dev qttools5-dev-tools qtdeclarative5-dev libqt5svg5-dev libqt5websockets5-dev qtwebengine5-dev -y
-if [ -d "supercollider" ]; then
+if [ -d "SuperCollider" ]; then
     cd SuperCollider
     git pull
 else
