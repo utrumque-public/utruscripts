@@ -46,7 +46,7 @@ sudo ldconfig
 
 # SOURCE DIRECTORY
 cd ~
-if [ -d! "src" ]; then
+if [ ! -d "src" ]; then
     mkdir src
 fi
 
