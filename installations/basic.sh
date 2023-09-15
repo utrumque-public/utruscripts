@@ -71,8 +71,8 @@ sudo make install
 
 # SUPERCOLLIDER
 cd ~/src
-sudo apt install build-essential cmake libjack-jackd2-dev libsndfile1-dev libfftw3-dev libxt-dev libavahi-client-dev -y
-sudo apt install libudev-dev qtbase5-dev qt5-qmake qttools5-dev qttools5-dev-tools qtdeclarative5-dev libqt5svg5-dev libqt5websockets5-dev qtwebengine5-dev -y
+sudo apt install qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools -y
+sudo apt install build-essential libsndfile1-dev libasound2-dev libavahi-client-dev libicu-dev libreadline6-dev libncurses5-dev libfftw3-dev libxt-dev libudev-dev pkg-config git cmake qt5-qmake qttools5-dev qttools5-dev-tools qtdeclarative5-dev qtpositioning5-dev libqt5sensors5-dev libqt5opengl5-dev qtwebengine5-dev libqt5svg5-dev libqt5websockets5-dev libjack-jackd2-dev -y
 if [ -d "SuperCollider" ]; then
     cd SuperCollider
     git pull
