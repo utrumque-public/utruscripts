@@ -77,7 +77,7 @@ if [ -d "SuperCollider" ]; then
     cd SuperCollider
     git pull
 else
-    git clone --recurse-submodules https://github.com/SuperCollider/SuperCollider.git
+    git clone --branch 3.13 --recurse-submodules https://github.com/SuperCollider/SuperCollider.git
     cd SuperCollider
 fi
 mkdir build
